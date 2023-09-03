@@ -1,0 +1,19 @@
+기능
+1. 로그인/회원가입
+2. todo 추가
+3. todo 완료
+4. todo 수정
+
+DB
+1. content: date, title
+2. user: id, post id, pw
+3. count: totalPost
+
+API
+/
+/list
+/getList
+/signup
+/add
+/done/:id
+/edit
