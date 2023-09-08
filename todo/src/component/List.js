@@ -49,7 +49,7 @@ function List(){
             setTaskNum(res.data.num)
         })
     }
-    const height = taskNum*120
+    const height = 300+taskNum*120
 
     return (
         <div className="todo-container" style={{height: `${height}px`}}>
@@ -79,7 +79,7 @@ function List(){
             />
             <button className = 'purpleButton' style = {{width:"10%", height:50, fontSize:20, display: 'inline-block'}}
             onClick={()=>{
-                const titleTest = new RegExp("/^(?!.*<[^>]*>|.*<\/script>)[^\s]{1,30}$/")
+                const titleTest = new RegExp("^[a-zA-Z][0-9a-zA-Z]{1,30}$")
                 const dateTest = new RegExp("^(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$")
                 if (titleTest.test(newTitle)&&dateTest.test(newDate)){
                     axios.post('/add',{date:newDate, title:newTitle})

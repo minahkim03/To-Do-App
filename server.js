@@ -70,7 +70,7 @@ app.put('/edit', (req, res)=>{
 app.post('/register',(req,res)=>{
     db.collection('user').findOne({id:req.body.id},(err, result)=>{
         if (!result){
-            const saltRounds = 10
+            const saltRounds = parseInt(process.env.SALT)
             bcrypt.hash(req.body.pw, saltRounds, (err,hash)=>{
                 try{
                     db.collection('user').insertOne({id: req.body.id, pw: hash, completedTask:0, allTask:0})
